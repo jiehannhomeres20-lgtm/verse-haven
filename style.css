@@ -1,0 +1,98 @@
+:root{--bg:#e2d3b3;--paper:#f6ecd8;--side:#ecdfc2;--ink:#3a2a22;--soft:#7d6a58;--head:#7a2a20;--btn:#7a2b21;--gold:#c9a247;--line:#d3c29c;--onbtn:#f6ecd8;--cb:#d6bb80}
+body.dark{--bg:#1e140f;--paper:#2c2119;--side:#251a12;--ink:#f3e6cc;--soft:#b79f86;--head:#d9836b;--btn:#d9836b;--onbtn:#2b1710;--line:#4a3626;--cb:#4a3626}
+*{box-sizing:border-box}
+body{margin:0;font-family:"EB Garamond",Garamond,Georgia,serif;font-size:17px;background:var(--bg);color:var(--ink)}
+button,input,select{font-family:inherit;font-size:inherit;color:inherit}
+
+/* ---------- Login and register ---------- */
+body.auth{min-height:100vh;display:grid;place-items:center;padding:24px;background:#e2d3b3;color:#3a2a22}
+.book{position:relative;display:grid;grid-template-columns:1fr 1fr;width:min(920px,100%);min-height:max(580px,calc(100vh - 48px));background:#f6ecd8;box-shadow:0 10px 30px rgba(80,50,20,.3);border-radius:4px;overflow:hidden}
+.pane-l{background:#5a2119;color:#f3dfb4;display:flex;flex-direction:column;justify-content:center;padding:60px 36px 60px 33px}
+.pane-l q{font-family:"Cormorant Garamond",Georgia,serif;font-style:italic;font-size:35px;line-height:1.2;quotes:none}
+.pane-l cite{font-style:normal;color:#d9b97a;margin-top:18px;font-size:16px}
+.pane-r{position:relative;z-index:2;padding:86px 48px 50px}
+.brand{text-align:center}
+.brand .name{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:25px;letter-spacing:.2em;color:#b9893a;text-transform:uppercase;line-height:1.2}
+.tagrow{display:flex;align-items:center;gap:10px;color:#9a7a4a;font-style:italic;letter-spacing:.14em;font-size:14px}
+.tagrow:before,.tagrow:after{content:"";flex:1;height:1px;background:#d8c08a}
+.pane-r h2{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:40px;color:#7a2a20;margin:26px 0 0;line-height:1}
+.pane-r .sub{font-style:italic;color:#8a7560;margin:6px 0 14px}
+.pane-r label{display:block;font-weight:500;font-size:17px;margin-bottom:10px}
+.pane-r input{display:block;width:100%;padding:9px 10px;margin-top:3px;font-size:17px;background:#fffaf0;border:1px solid #d3c29c;border-radius:3px}
+.pane-r input:focus{outline:2px solid #7a2b21;outline-offset:0}
+.pane-r .go{width:100%;padding:10px;margin-top:6px;background:#7a2b21;color:#f6ecd8;border:0;border-radius:3px;font-weight:600;font-size:17px;cursor:pointer}
+.pane-r .go:hover{background:#5a2119}
+.pane-r .alt{color:#8a7560;margin:14px 0 0}
+.pane-r .alt a{color:#7a2b21}
+#msg{color:#a3271d;min-height:22px;margin-bottom:4px;font-size:16px}
+.frame{position:absolute;inset:0;border:90px solid transparent;border-image:url(frame.svg) 90 round;pointer-events:none;z-index:4}
+.seam{position:absolute;left:50%;top:0;bottom:0;width:5px;transform:translateX(-50%);border-left:1px solid #c9a247;border-right:1px solid #c9a247;z-index:3}
+@media(max-width:760px){.book{grid-template-columns:1fr}.pane-l{display:none}.seam{display:none}.pane-r{padding:56px 30px 44px}.frame{border-width:60px}}
+
+/* ---------- Reading app ---------- */
+body.app{height:100vh;display:flex;flex-direction:column;overflow:hidden}
+.top{display:flex;gap:10px;align-items:center;flex-wrap:wrap;padding:10px 14px;background:var(--side);border-bottom:1px solid var(--line)}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none}
+.logo .name{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:31px;color:var(--head)}
+.gofm{display:flex;flex:1;min-width:240px}
+.gofm input{flex:1;min-width:0;font-size:16px;padding:9px 12px;background:var(--paper);border:1px solid var(--line);border-radius:3px 0 0 3px}
+.gofm button{padding:0 18px;background:var(--btn);color:var(--onbtn);border:0;border-radius:0 3px 3px 0;font-weight:600;cursor:pointer}
+.top select,.tbtn,.tools button,.pn button{font-size:16.5px;padding:9px 12px;background:var(--paper);border:1px solid var(--line);border-radius:3px;cursor:pointer}
+.tbtn:hover,.tools button:hover,.pn button:hover{border-color:var(--btn);color:var(--head)}
+.who{font-style:italic;color:var(--soft)}
+.layout{flex:1;display:flex;min-height:0}
+.side{width:260px;flex-shrink:0;background:var(--side);border-right:1px solid var(--line);overflow-y:auto}
+.tabs{display:flex;position:sticky;top:0;background:var(--side);border-bottom:1px solid var(--line)}
+.tabs button{flex:1;font-size:17.5px;padding:12px 8px;background:none;border:0;border-bottom:3px solid transparent;color:var(--soft);cursor:pointer}
+.tabs button.on{color:var(--head);border-bottom-color:var(--btn);font-weight:500}
+#list{padding:8px 20px 30px}
+#list h3{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:21px;color:var(--head);margin:10px 0 8px;padding-bottom:3px;border-bottom:1px solid var(--line)}
+.bk{display:block;width:calc(100% + 16px);margin:0 -8px;text-align:left;padding:5px 10px;line-height:23px;background:none;border:0;border-radius:4px;cursor:pointer;font-size:17px}
+.bk:hover{background:rgba(201,162,71,.2)}.bk.on,.bk.on:hover{color:var(--onbtn);background:var(--btn)}
+.empty{color:var(--soft);font-style:italic}
+.sv{display:flex;gap:6px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--line)}
+.svt{flex:1;text-align:left;background:none;border:0;cursor:pointer;padding:0}
+.svt b{display:block;color:var(--head)}.svt span{font-size:15px;color:var(--soft);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.x{background:none;border:0;font-size:22px;color:var(--soft);cursor:pointer;line-height:1}
+.main{flex:1;overflow-y:auto;padding:24px 16px 40px}
+.page{max-width:735px;margin:0 auto;background:var(--paper);border:1px solid var(--line);box-shadow:0 4px 14px rgba(80,50,20,.15);border-radius:3px}
+.head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start;padding:22px 32px 4px}
+.head h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:43px;line-height:1;margin:0;color:var(--head)}
+.head .sub{font-style:italic;color:var(--soft);margin-top:6px}
+.tools{display:flex;gap:8px;flex-shrink:0}
+.chaps{display:flex;flex-wrap:wrap;gap:6px;padding:14px 32px 16px;border-bottom:3px double var(--line)}
+.chaps button{min-width:36px;height:30px;padding:0 6px;font-size:16.5px;background:var(--paper);border:1px solid var(--cb);border-radius:3px;cursor:pointer}
+.chaps button:hover{background:rgba(201,162,71,.25)}
+.chaps button.on{background:var(--btn);border-color:var(--btn);color:var(--onbtn)}
+.text{padding:24px 32px 14px;line-height:1.86;font-size:14px;text-align:justify;hyphens:auto;-webkit-hyphens:auto}
+.text sup{font-size:.6em;color:var(--head);opacity:.8;margin-right:1px}
+.v{cursor:pointer;border-radius:2px}.v:hover{background:rgba(201,162,71,.18)}
+.v.hl{background:rgba(201,162,71,.4)}
+.v.sv2{text-decoration:underline;text-decoration-color:var(--gold);text-decoration-thickness:2px;text-underline-offset:4px}
+.msg{color:var(--soft);font-style:italic;text-align:left}
+.note{text-align:left;margin:22px 0 8px;font-style:italic;color:var(--soft);font-size:14.5px}
+.note a{color:var(--head);font-weight:500;cursor:pointer}
+.go-input::placeholder,.gofm input::placeholder{font-style:italic;color:var(--soft)}
+.pn{display:flex;justify-content:space-between;padding:10px 32px 28px}
+@media(max-width:760px){.side{width:150px}.head{flex-direction:column;padding:20px 18px 6px}.head h1{font-size:40px}.chaps,.text,.pn{padding-left:18px;padding-right:18px}.logo .name{font-size:26px}}
+@media(max-width:520px){.layout{flex-direction:column}.side{width:100%;max-height:34vh;border-right:0;border-bottom:1px solid var(--line)}}
+
+/* Register page: a bit tighter so all fields fit in one window */
+.pane-r.tight{padding:44px 48px 28px}
+.pane-r.tight h2{font-size:36px;margin-top:12px}
+.pane-r.tight .sub{margin:2px 0 8px}
+.pane-r.tight label{margin-bottom:6px}
+.pane-r.tight input{padding:5px 10px}
+.pane-r.tight #msg{min-height:18px;margin:0}
+.pane-r.tight .go{padding:8px;margin-top:2px}
+.pane-r.tight .alt{margin-top:8px}
+
+/* Color when you select words with the mouse */
+::selection{background:#ecd48f;color:#3a2a22}
+body.dark ::selection{background:#d9836b;color:#2b1710}
+
+/* Translator */
+.tools select{font-size:16.5px;padding:9px 8px;background:var(--paper);border:1px solid var(--line);border-radius:3px;color:inherit;cursor:pointer}
+.tools select:hover{border-color:var(--btn)}
+.trnote{font-size:14px;font-style:italic;color:var(--soft);margin-top:4px;max-width:420px}
+.v .tr{display:block;margin:2px 0 8px;font-style:italic;color:var(--head);text-align:left}
